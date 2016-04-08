@@ -12,7 +12,9 @@ db.bios.find( {"awards.award": { $in: ["Turing Award"] } } ).pretty();
 
 //find IDs between 3 and 7 //
 db.bios.find({$and: [{"_id" : { $gt: 3}}, {"_id" : {$lt: 7} }] }).pretty();
+
 //find awards that were awarded before the year 2000//
 db.bios.find({"awards.year": {$lt: 2000}}).pretty();
+
 //find birth dates with no death dates (aka. those that are alive)//
 db.bios.find({$and: [{"birth": {$exists: true}}, {"death": {$exists: false}}]}).pretty();
